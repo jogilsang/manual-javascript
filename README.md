@@ -11,6 +11,7 @@ for me
 여러분이 현실 세계에서 인지하는 물체에 대한
 모델을 만들기 위해 변수와 함수를 그룹화한 것을 말한다.
 
+```javascript
 var hotel = new Object();
 hotel.name = 'quay';
 hotel.rooms = 40;
@@ -18,6 +19,7 @@ hotel.booked = 25;
 hotel.checkAvailability = function() {
           return this.room - this.booked;
 };
+```
 
 ```javascript
 function Hotel ( name, rooms, booked) {
@@ -47,22 +49,25 @@ screen : 장치의 디스플레이 ㅓㅇ보
 
 length는 코드단위를 셈. 따라서 한글이나 중국어의 경우 글자당 두개의 코드단위를 사용하기도함
 
+```javascript
 var today = new Date();
 var est = new Date('Apr 16, 1996 15:45:55');
 var difference = today.getTime() - est.getTime();
 difference = (difference / 31556900000);
+```
 
 == 같은 값인지
 === 같은 데이터 타입인지
 
-var highScore = 'false' -> true
-var highScore = '0' -> true
+```javascript
+var highScore = 'false' // true
+var highScore = '0' // true
 
-var highScore = 0 -> false
-var highScore = '' -> false
+var highScore = 0 // false
+var highScore = '' // false
+```
 
-4 뽀모도르
-
+```javascript
 false == 0 -> true
 false == '' -> true
 0 == '' -> true
@@ -71,6 +76,7 @@ null == false -> false
 undefined == false -> false
 NaN == null -> false
 NaN == NaN ->false
+```
 
 문서객체모델 (DOM, Document Object model)
 브라우저는 웹 페이지를 로드할 때 해당 페이지에 대한 모델을 생성한다.
@@ -84,13 +90,15 @@ el.onblur = checkUsername;
 이벤트 리스너
 하나의 이벤트로 여러 개의 함수를 실행가능.
 제이쿼리로 대체
+```javascript
+
 var el =document.getElementById('username');
 el.addEventListener('blur', checkUsername, false);
 el.addEventListener('blur', function() {
 checkUsername(5);
 }, false);
 
-IE5 ~ IE8 지원안됨
+// IE5 ~ IE8 지원안됨
 if( el.addEventListener) {
   el.addEventListener('blur', function() {
      checkUsername(5)
@@ -100,6 +108,7 @@ else {
     checkUsername(5)
   });
 }
+```
 
 헬퍼 메서드
 적절한 이벤트 핸들러를 생성하는 함수
@@ -111,7 +120,7 @@ else {
 이벤트는 브라우저가 어떤 일이 발생했음을 알리는 수단
 
 이벤트 객체는 이벤트의 요소와 정보를 전달
-
+```javascript
 function checkUsername(e) {
    var target = e.target; // 이벤트 요소를 가져옴
 }
@@ -127,26 +136,33 @@ var el = document.getElementById('username');
 el.addEventLisetner('blur', function(e) {
      checkUsername(e, 5);
 }, false);
+```
 
 이벤트 객체는 자동으로 전달되지만, 익명으로 함수를 호출할경우
 매개변수 이름을 명시해줘야함.
 
+```javascript
 function getEventTarget(e) {
       if(!e) { // IE 5 ~ IE 8의 경우
          e = window.target; 
      }
       return e.target || e.srcElement;
 }
+```
 
+```javascript
 event.preventDefault(); event.returnValue = false;
 // 같은 페이지에 머무름
+```
 
 이벤트는 다음 문서에 ㅓㅇ의
 - W3C DOM 명세
 - HTML5 명세
 - 브라우저 객체모델(BOM : Browser Object Model)
 
+```javascript
 String.fromCharCode(event.keyCode);
+```
 
 click보다 change를 사용해야하는 이유
 사용자가 상호작용하는 방법은 탭키, 화살표키, 엔터키

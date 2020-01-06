@@ -19,6 +19,7 @@ hotel.checkAvailability = function() {
           return this.room - this.booked;
 };
 
+```javascript
 function Hotel ( name, rooms, booked) {
    this.name = name;
    this.rooms = rooms;
@@ -28,6 +29,7 @@ function Hotel ( name, rooms, booked) {
  };
 
 }
+```
 
 전역 컨텍스트 내에 선언된 함수 내에서 this 키워드를 사용하면
 이 키워드는 window 객체를 가리키게된다.
